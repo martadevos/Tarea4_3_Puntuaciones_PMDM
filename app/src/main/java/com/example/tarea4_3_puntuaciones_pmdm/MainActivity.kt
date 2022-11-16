@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         jugadores = ArrayList()         // Se prepara la lista
-        getTasks()                  // Se carga la lista de tareas a través del DAO
-        findViewById<Button>(R.id.btnAddTask).setOnClickListener {
-            addTask(TaskEntity(name = findViewById< EditText>(R.id.etTask).text.toString()))}
+        getJugadoresPuntuaciones()                  // Se carga la lista de tareas a través del DAO
+        findViewById<Button>(R.id.btnAddUsuario).setOnClickListener {
+            addTask(JugadorEntity(usuario = findViewById< EditText>(R.id.txtUsuario).text.toString()))}
     }
 
     fun clearFocus(){
-        findViewById<EditText>(R.id.etTask).setText("") // Borra el texto en el EditText
+        findViewById<EditText>(R.id.txtUsuario).setText("") // Borra el texto en el EditText
     }
 
     fun Context.hideKeyboard() {    // Oculta el teclado de texto
@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 
-    fun getTasks()= runBlocking {       // Corrutina que saca de la base de datos la lista de tareas
+    fun getJugadoresPuntuaciones()= runBlocking {       // Corrutina que saca de la base de datos la lista de tareas
         launch {                        // Inicio del hilo
-            jugadores = PiedraPapelTijerasApp.database.taskDao().getAllTasks()    // Se carga la lista de tareas
+            jugadores = PiedraPapelTijerasApp.database.jugadorDao().getAllTasks()    // Se carga la lista de tareas
             setUpRecyclerView(jugadores)        // se pasa la lista a la Vista
         }
     }
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setUpRecyclerView(tasks: List< TaskEntity>) {    // Método que muestra la vista usando el adaptador
+    fun setUpRecyclerView(jugadores: List<JugadorEntity>) {    // Método que muestra la vista usando el adaptador
         adapter = TasksAdapter(tasks, { updateTask(it) }, {deleteTask(it)})
         recyclerView = findViewById(R.id.rvTask)
         recyclerView.setHasFixedSize(true)
@@ -79,3 +79,4 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
     }
 }
+

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".JugadorFragment">
+
+
+    <LinearLayout
+        android:id="@+id/botonesEleccion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/imgBtnRock"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="56dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/rock"
+                android:scaleType="fitCenter"
+                android:src="@drawable/rock"
+                app:layout_constraintBottom_toTopOf="@+id/imgBtnScissors"
+                app:layout_constraintEnd_toStartOf="@+id/imgBtnSpock"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <ImageButton
+                android:id="@+id/imgBtnPaper"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="56dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/paper"
+                android:scaleType="fitCenter"
+                android:src="@drawable/paper"
+                app:layout_constraintBottom_toTopOf="@+id/imgBtnLizard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgBtnSpock"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <ImageButton
+                android:id="@+id/imgBtnSpock"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="52dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/spock"
+                android:scaleType="fitCenter"
+                android:src="@drawable/spock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imgBtnScissors"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="56dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/scissors"
+                android:scaleType="fitCenter"
+                android:src="@drawable/scissors"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgBtnSpock"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <ImageButton
+                android:id="@+id/imgBtnLizard"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="56dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/lizard"
+                android:scaleType="fitCenter"
+                android:src="@drawable/lizard"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgBtnSpock"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgViewEleccionJugador"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:visibility="gone"
+        android:src="@drawable/question_mark"
+        android:contentDescription="@string/eleccion" />
+
+</LinearLayout>

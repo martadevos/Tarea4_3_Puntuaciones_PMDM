@@ -6,11 +6,41 @@
     android:background="@android:color/background_light"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/rviewTitulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/relativelytAddUsuario">
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Usuario"/>
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Partidas"/>
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Max puntuacion"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rviewRankingPuntuaciones"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relativelytAddUsuario" />
+        android:layout_below="@+id/rviewTitulos" />
 
     <RelativeLayout
         android:id="@+id/relativelytAddUsuario"
@@ -33,6 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Añadir" />
+            android:text="PLAY" />
     </RelativeLayout>
 </RelativeLayout>
