@@ -6,23 +6,21 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tarea4_3_puntuaciones_pmdm.database.entidades.JugadorEntity
 
-class TasksAdapter(
-    val tasks: List<TaskEntity>,                   // Objeto Lista de tareas
-    val checkTask: (TaskEntity) -> Unit,            // chequeo de tarea
-    val deleteTask: (TaskEntity) -> Unit            // borrado de tarea
-) : RecyclerView.Adapter<TasksAdapter.ViewHolder>() {    // Devuelve la vista
+class JugadorAdapter(
+    val jugadores: List<JugadorEntity>,                   // Objeto Lista de tareas
+) : RecyclerView.Adapter<JugadorAdapter.ViewHolder>() {    // Devuelve la vista
 
     override fun onBindViewHolder(
         holder: ViewHolder,
         position: Int
     ) {     // Muestra la vista (holder) y cada tarea de la lista (position)
-        val item =
-            tasks[position]                                         // Extrae la tarea de la lista
+        val jugador =
+            jugadores[position]                                         // Extrae un jugador de la lista
+
         holder.bind(
-            item,
-            checkTask,
-            deleteTask
+            jugador
         )                           // Muestra el item en la vista (ver más adelante)
     }
 
@@ -42,24 +40,23 @@ class TasksAdapter(
     }
 
     override fun getItemCount(): Int {
-        return tasks.size     // Devuelve el número de tareas de la lista
+        return jugadores.size     // Devuelve el número de tareas de la lista
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {     // Clase con la vista
-        val tvTask =
+        val tvUsuarioJugador =
             view.findViewById<TextView>(R.id.tvUsuarioJugador)         // instancia del Textview de la vista
-        val cbIsDone =
-            view.findViewById<CheckBox>(R.id.cbIsDone)     // instancia del Checkbox de la vista
+        val tvPartidasJugadas =
+            view.findViewById<CheckBox>(R.id.tvPartidasJugadas)     // instancia del Checkbox de la vista
+        val tvMaximaPuntuacion =
+            view.findViewById<CheckBox>(R.id.tvMaximaPuntuacion)     // instancia del Checkbox de la vista
 
         fun bind(                                   // función que une los elementos en la vista y prepara los listeners
-            task: TaskEntity,
-            checkTask: (TaskEntity) -> Unit,
-            deleteTask: (TaskEntity) -> Unit
+            jugador: JugadorEntity
         ) {
-            tvTask.text = task.name
-            cbIsDone.isChecked = task.isDone
-            cbIsDone.setOnClickListener { checkTask(task) }
-            itemView.setOnClickListener { deleteTask(task) }
+            tvUsuarioJugador.text = jugador.usuario
+            tvPartidasJugadas.text = jugador.numPartidas.toString()
+            tvMaximaPuntuacion.text = jugador.puntuacionMasAlta.toString()
         }
     }
 }

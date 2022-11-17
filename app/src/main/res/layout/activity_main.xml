@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/rviewTitulos"
+        android:id="@+id/linerarlytTitulos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -40,7 +40,7 @@
         android:id="@+id/rviewRankingPuntuaciones"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rviewTitulos" />
+        android:layout_below="@+id/linerarlytTitulos" />
 
     <RelativeLayout
         android:id="@+id/relativelytAddUsuario"
@@ -55,11 +55,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/btnAddUsuario"
+            android:layout_toStartOf="@+id/btnPlay"
             android:hint="USERNAME" />
 
         <Button
-            android:id="@+id/btnAddUsuario"
+            android:id="@+id/btnPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
